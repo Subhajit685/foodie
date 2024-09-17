@@ -11,7 +11,7 @@ const ContextProvider = (props) => {
 
     const [food_list, setfood_list] = useState([])
 
-    const url = "http://localhost:4000"
+    const url = "https://foodie-6t6t.onrender.com"
 
     const [count, setcount] = useState({})
 
