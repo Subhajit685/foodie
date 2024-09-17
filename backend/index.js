@@ -14,7 +14,7 @@ dbconnection()
 
 
 app.use(cors({
-    origin:["https://foodie-frontend-5avz.onrender.com", "http://localhost:5174"],
+    origin:["https://foodie-frontend-5avz.onrender.com", "https://foodie-admin-3qzk.onrender.com"],
     credentials:true
 }))
 app.use(express.json())
