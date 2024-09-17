@@ -1,7 +1,7 @@
 import express from "express"
 import User from "../models/user.modle.js"
 import validator from "validator"
-import bcrypt from "bcrypt"
+import bcryptjs from "bcryptjs"
 import { getToket } from "../utils/genToken.js"
 import { check } from "../middleware/check.js"
 
@@ -22,7 +22,7 @@ route.post("/singup", async(req, res)=>{
             return res.status(400).json({success : false, message : "Password should be 8 character"})
         }
 
-        const haspassword = await bcrypt.hash(password, 10)
+        const haspassword = await bcryptjs.hash(password, 10)
 
         const newuser = await User({
             name,
@@ -52,7 +52,7 @@ route.post("/login", async(req, res)=>{
             return res.status(400).json({success: false, message : "User not found"})
         }
 
-        const matchpassword = await bcrypt.compare(password, user.password)
+        const matchpassword = await bcryptjs.compare(password, user.password)
         if(!matchpassword){
             return res.status(400).json({success: false, message : "Invalid crenditial"})
         }
