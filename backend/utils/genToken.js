@@ -7,9 +7,9 @@ export const getToket = (id, res) =>{
     const token = jwt.sign({id}, process.env.SECRET_KEY, {expiresIn : "7d"})
 
     res.cookie("jwt_token", token, {
-        maxAge : Date.now() + 24 * 60 * 60 * 1000,
+        maxAge : Date.now() + 7 * 24 * 60 * 60 * 1000,
         httpOnly : true,
-        secure: ENV_VARS.NODE_ENV !== "development",
+        secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
     })
     return token
