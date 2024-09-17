@@ -9,7 +9,7 @@ export const getToket = (id, res) =>{
     res.cookie("jwt_token", token, {
         maxAge : Date.now() + 24 * 60 * 60 * 1000,
         httpOnly : true,
-        secure: process.env.NODE_ENV === "production",
+        secure: ENV_VARS.NODE_ENV !== "development",
         sameSite: "strict",
     })
     return token
