@@ -9,7 +9,7 @@ import { Toaster } from "react-hot-toast"
 
 function App() {
 
-  const url = "http://localhost:4000"
+  const url = "https://foodie-6t6t.onrender.com"
   return (
     <div className='relative'>
       <Navbar />
