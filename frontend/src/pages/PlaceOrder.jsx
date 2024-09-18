@@ -49,9 +49,7 @@ function PlaceOrder() {
     navigate("/myorder")
   }
 
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+
 
   return (
     <div>

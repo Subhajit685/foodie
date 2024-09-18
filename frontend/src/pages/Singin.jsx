@@ -12,7 +12,6 @@ function Singin() {
 
   const handelSubmit = async (e) =>{
     e.preventDefault()
-    console.log(name, email, password)
     singup({name, email, password})
   }
 

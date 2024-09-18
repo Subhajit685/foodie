@@ -22,7 +22,6 @@ function Order({ url }) {
   const hendlechenge = async (e, id) =>{
     try {
       const res = await axiox.post(`${url}/api/order/status`, {id, status : e.target.value}, {withCredentials:true})
-      console.log(res)
     } catch (error) {
       console.log(error)
     }
