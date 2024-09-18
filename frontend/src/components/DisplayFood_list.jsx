@@ -14,7 +14,7 @@ function DisplayFood_list({catagory}) {
             <div className='grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mx-auto'>
                 {food_list.map((item) => {
                     if(catagory === "All" || catagory === item.category)
-                    return <div className='mx-auto my-4 bg-slate-50' key={item._id}>
+                    return <div className='mx-auto my-4 bg-slate-50 hover:scale-110' key={item._id}>
                         <div className='h-96 xl:w-80 lg:w-64 md:w-64 sm:w-64 rounded-md drop-shadow-md border'>
                             <div className='h-52 w-full relative'>
                                 <img src={`${url}/images/`+item.image} alt="" className='h-64 w-full object-cover object-center rounded-md' />
