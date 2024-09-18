@@ -23,7 +23,7 @@ const ContextProvider = (props) => {
             const res = await axios.get(`${url}/api/food/item`, { withCredentials: true })
             setfood_list(res.data.data)
         } catch (error) {
-
+            console.log(error)
         }
     }
 
@@ -115,7 +115,7 @@ const ContextProvider = (props) => {
 
     useEffect(() => {
         getfood()
-    }, [login, check, singup])
+    }, [])
 
     useEffect(()=>{
         setcart()
