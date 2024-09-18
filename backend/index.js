@@ -18,7 +18,9 @@ dbconnection()
 
 app.use(cors({
     origin:["https://foodie-frontend-5avz.onrender.com", "https://foodie-admin-3qzk.onrender.com"],
-    credentials:true
+    credentials:true,
+    methods : ["POST", "GET"],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }))
 app.use(express.json())
 app.use(cookieParser())
