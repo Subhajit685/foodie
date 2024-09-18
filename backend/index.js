@@ -6,8 +6,11 @@ import cartRoute from "./routes/cart.js"
 import orderRoute from "./routes/orderroute.js"
 import cors from "cors"
 import cookieParser from 'cookie-parser'
+import path from "path"
+import dotenv from "dotenv"
 
 
+dotenv.config()
 const PORT = process.env.PORT || 4000
 const app = express()
 dbconnection()
@@ -24,6 +27,17 @@ app.use("/api/user", userRoute)
 app.use("/api/cart", cartRoute)
 app.use("/api/order", orderRoute)
 app.use("/images", express.static("uploads"))
+
+const __dirname = path.resolve()
+
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, "/frontend/dist")))
+
+    app.get("*", (req, res)=>{
+        res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
+    })
+}
 
 app.get("/", (req, res)=>{
     res.send("hii")
